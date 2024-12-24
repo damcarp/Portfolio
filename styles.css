@@ -1,0 +1,273 @@
+* {
+  box-sizing: border-box; /* Establece el modelo de caja para que el padding no afecte el ancho */
+  cursor: url('./imagenes/sword.png') 10 10, auto;
+}
+
+
+@font-face {
+  font-family: "BreathOfZelda";
+  src: url("./fonts/The Wild Breath of Zelda.otf") format("opentype");
+}
+
+/* Estilo para el cuerpo */
+body {
+  font-family: "BreathOfZelda", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #2e3a23;
+  height: 100%;
+  background-image: url('wood-texture.jpg');
+  background-repeat: repeat;
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  letter-spacing: 0.02em;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+ h1, h2, h3 {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra fuerte para el texto */
+}
+
+/* Partículas de chispa */
+.sparkle {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background-color: #FFD700; /* Color dorado como las chispas */
+  border-radius: 50%;
+  pointer-events: none; /* No interferir con otros elementos */
+  animation: sparkleAnimation 1s forwards;
+  opacity: 1;
+  z-index: 9999; /* Asegurarse de que las partículas estén por encima de otros elementos */
+}
+
+
+/* Animación para las partículas */
+@keyframes sparkleAnimation {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* Restablecer la posición de la partícula después de la animación */
+@keyframes sparkleAnimation {
+  0% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(3) translate(-50%, -50%);
+    opacity: 0;
+  }
+}
+
+
+/* Estilo del contenido principal */
+main {
+  margin-left: 12em;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Estilos del nav lateral */
+header nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 12em;
+  height: 100%;
+  background-color: #4a6d31;
+  font-size: 1.5em;
+  color: #fff3e0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  z-index: 10;
+  padding-top: 40px;
+  box-shadow: 4px 0 10px rgba(0, 0, 0, 0.2);
+  border-right: 3px solid #f9a825;
+}
+
+header nav img.profile-img {
+  width: 80%;
+  margin-bottom: 20px;
+  border-radius: 50%;
+  display: block;
+  border: 2px solid #f9a825;
+}
+
+/* Efecto de brillo en los enlaces y botones */
+a:hover, button:hover {
+  position: relative;
+  color: #ffd700; /* Color dorado como el brillo */
+  text-shadow: 0 0 10px rgba(255, 223, 0, 0.7), 0 0 20px rgba(255, 223, 0, 0.7); /* Efecto de brillo */
+  transform: scale(1.1); /* Leve escalado */
+  transition: transform 0.3s ease, text-shadow 0.3s ease; /* Transición suave */
+}
+
+/* Efecto de brillo tipo cofre cuando se pasa el mouse por encima */
+a:hover::before, button:hover::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(circle, rgba(255, 223, 0, 0.4), rgba(255, 223, 0, 0));
+  border-radius: 50%;
+  animation: shine 1s infinite;
+  transform: translate(-50%, -50%);
+}
+
+
+
+/* Estilo de los elementos del nav */
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+nav ul li {
+  padding: 10px;
+  text-align: center;
+  font-size: 1.3em;
+}
+
+nav ul li a {
+  position: relative;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+
+
+nav ul li a:hover {
+  color: #ff9800; /* Color naranja de iluminación */
+  transform: scale(1.1);
+}
+
+/* Opción de sombra ligera en los enlaces cuando se hace hover */
+nav ul li a:hover {
+  text-shadow: 0px 0px 10px rgba(255, 152, 0, 0.8); /* Iluminación dorada/naranja */
+}
+
+nav ul li a.active {
+  color: #ffeb3b;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px #000;
+}
+
+/* Estilo de las secciones del contenido */
+section {
+  padding: 40px 20px;
+  background-color: #2e3a23;
+  color: #fff3e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  min-height: 100vh;
+  width: 100%;
+  z-index: 1;
+  position: relative;
+  display: block;
+  text-align: center;
+  padding-top: 10em;
+}
+
+section.active {
+  display: block;
+}
+
+section#inicio {
+  text-align: center;
+  padding-top: 5em;
+}
+
+section#inicio h1 {
+  margin-left: 2em;
+  font-size: 4em;
+  text-align: left;
+  margin-bottom: 0.8em;
+  color: #ffcc00;
+}
+
+section#inicio h2 {
+  font-size: 2.8em;
+  margin-bottom: 3em;
+  color: #9b2226;
+  word-wrap: break-word;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+section#inicio h3 {
+  font-size: 1.7em;
+  margin-bottom: 2.5em;
+  color: #ffeb3b;
+  font-weight: normal;
+  text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.6);
+}
+
+section#inicio a {
+  color: #f9a825;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+section#inicio a:hover {
+  text-decoration: underline;
+}
+
+/* Responsivo */
+@media (max-width: 1024px) {
+  section {
+    padding: 20px;
+  }
+}
+@media (max-width: 768px) {
+  nav {
+    width: 100%;
+    height: auto;
+    position: static;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px 0;
+  }
+
+  nav ul {
+    flex-direction: row;
+  }
+
+  main {
+    margin-left: 0;
+    padding-top: 20px;
+  }
+
+  section#inicio h1 {
+    font-size: 2.8em;
+  }
+
+  section#inicio h2 {
+    font-size: 2em;
+  }
+}
+
